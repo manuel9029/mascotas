@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetCare - Agenda de Cuidados para Mascotas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-paw"></i> PetCare</h1>
+            <p>Tu agenda de cuidados para mascotas</p>
+        </header>
+
+        <main>
+            <section class="pet-list">
+                <h2>Mis Mascotas</h2>
+                <div class="pets" id="petList">
+                    <!-- Mascotas se añadirán aquí dinámicamente -->
+                </div>
+                <button id="addPetBtn" class="btn-add">
+                    <i class="fas fa-plus"></i> Añadir Mascota
+                </button>
+            </section>
+
+            <section class="pet-details" id="petDetails">
+                <div class="empty-state">
+                    <i class="fas fa-dog empty-icon"></i>
+                    <p>Selecciona una mascota o añade una nueva</p>
+                </div>
+                <!-- Detalles de mascota se mostrarán aquí -->
+            </section>
+        </main>
+
+        <div id="notification-container"></div>
+    </div>
+
+    <!-- Modales -->
+    <div class="modal" id="addPetModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Nueva Mascota</h2>
+            <form id="newPetForm">
+                <div class="form-group">
+                    <label for="petName">Nombre:</label>
+                    <input type="text" id="petName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="petType">Tipo:</label>
+                    <select id="petType" required>
+                        <option value="dog">Perro</option>
+                        <option value="cat">Gato</option>
+                        <option value="bird">Ave</option>
+                        <option value="rabbit">Conejo</option>
+                        <option value="other">Otro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="petBirthday">Fecha de nacimiento:</label>
+                    <input type="date" id="petBirthday">
+                </div>
+                
+                <div class="form-group">
+                    <label for="petPhoto">Foto:</label>
+                    <input type="file" id="petPhoto" accept="image/*">
+                    <div id="photoPreview" class="photo-preview"></div>
+                </div>
+                
+                <button type="submit" class="btn-submit">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="addEventModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Nuevo Evento</h2>
+            <form id="newEventForm">
+                <input type="hidden" id="eventPetId">
+                
+                <div class="form-group">
+                    <label for="eventType">Tipo de evento:</label>
+                    <select id="eventType" required>
+                        <option value="vaccine">Vacuna</option>
+                        <option value="bath">Baño</option>
+                        <option value="walk">Paseo</option>
+                        <option value="food">Comida</option>
+                        <option value="vet">Cita Veterinario</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventName">Nombre:</label>
+                    <input type="text" id="eventName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventDate">Fecha:</label>
+                    <input type="datetime-local" id="eventDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventNotes">Notas:</label>
+                    <textarea id="eventNotes"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventReminder">Recordatorio:</label>
+                    <input type="checkbox" id="eventReminder" checked>
+                </div>
+                
+                <button type="submit" class="btn-submit">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <scrip src=sw.js></scrip>
+</body>
+</html>
